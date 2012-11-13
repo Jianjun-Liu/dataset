@@ -1,8 +1,11 @@
+# Enable gpclib
+gpclibPermit()
+
 # Require the maptools package
 require(maptools)
 
 # Import the shapefile as a SpatialPointsDataFrame
-noaa.hail.shapefile <- readShapePoints("~/workspace/hail.shp")
+noaa.hail.shapefile <- readShapePoints("hail/hail.shp")
 
-# Export the shapefile to csv
-write.table(noaa.hail.shapefile, "noaa-hail.csv", sep =",")
+# Export the shapefile to csv. Set row.names=FALSE to prevent index column from being written
+write.table(noaa.hail.shapefile, "noaa-hail.csv", sep = ",", row.names = FALSE)
